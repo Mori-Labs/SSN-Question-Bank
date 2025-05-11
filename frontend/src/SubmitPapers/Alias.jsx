@@ -25,7 +25,7 @@ const Alias = ({ handleSubmit }) => {
       {/* <div className="text-center mt-10">
         <Button onClick={handleSubmit} name={'Submit My Paper'}/>
       </div> */}
-      <div className="text-center mt-[-25px] mb-12">
+      <div className="text-center mt-[25px] mb-12">
         <span className="text-sm text-gray-700">
           Want to request for a Question paper? 
           <Link to="/requestpapers" className="text-blue-600 hover:underline">Request Here</Link>

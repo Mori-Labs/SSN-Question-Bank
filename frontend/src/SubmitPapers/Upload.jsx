@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
-import { FaFilePdf } from 'react-icons/fa'; // We are using react-icons for the PDF icon.
+import React from 'react';
+import { FaFilePdf } from 'react-icons/fa';
 
-const FileUpload = () => {
-  const [file, setFile] = useState(null);
-
+const FileUpload = ({ file, setFile }) => {
   const handleFileUpload = (event) => {
     const uploadedFile = event.target.files[0];
     setFile(uploadedFile);

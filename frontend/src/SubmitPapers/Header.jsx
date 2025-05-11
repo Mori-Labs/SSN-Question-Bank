@@ -1,11 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Select from 'react-select';
 
-const QPDetails = () => {
-  const [year, setYear] = useState(null);
-  const [semester, setSemester] = useState(null);
-  const [department, setDepartment] = useState(null);
-
+const QPDetails = ({ setYear, setSemester, setDepartment }) => {
   const yearOptions = [
     { value: '2025', label: '2025' },
     { value: '2024', label: '2024' },
@@ -21,7 +17,7 @@ const QPDetails = () => {
     { value: 'Fifth', label: 'Fifth' },
     { value: 'Sixth', label: 'Sixth' },
     { value: 'Seventh', label: 'Seventh' },
-    { value: 'Eighth', label: 'Eighth'}
+    { value: 'Eighth', label: 'Eighth' }
   ];
 
   const departmentOptions = [
@@ -31,15 +27,16 @@ const QPDetails = () => {
   ];
 
   const handleSelectChange = (type, selectedOption) => {
+    const value = selectedOption ? selectedOption.value : '';
     switch (type) {
       case 'year':
-        setYear(selectedOption ? selectedOption.value : null);
+        setYear(value);
         break;
       case 'semester':
-        setSemester(selectedOption ? selectedOption.value : null);
+        setSemester(value);
         break;
       case 'department':
-        setDepartment(selectedOption ? selectedOption.value : null);
+        setDepartment(value);
         break;
       default:
         break;
@@ -54,7 +51,6 @@ const QPDetails = () => {
           classNamePrefix="custom-select"
           className="w-full font-medium text-black border-2 border-gray-300 rounded-lg"
           options={yearOptions}
-          value={yearOptions.find(option => option.value === year)}
           onChange={(selectedOption) => handleSelectChange('year', selectedOption)}
         />
       </div>
@@ -65,7 +61,6 @@ const QPDetails = () => {
           classNamePrefix="custom-select"
           className="w-full font-medium text-black border-2 border-gray-300 rounded-lg"
           options={semesterOptions}
-          value={semesterOptions.find(option => option.value === semester)}
           onChange={(selectedOption) => handleSelectChange('semester', selectedOption)}
         />
       </div>
@@ -76,7 +71,6 @@ const QPDetails = () => {
           classNamePrefix="custom-select"
           className="w-full font-medium text-black border-2 border-gray-300 rounded-lg"
           options={departmentOptions}
-          value={departmentOptions.find(option => option.value === department)}
           onChange={(selectedOption) => handleSelectChange('department', selectedOption)}
         />
       </div>
