@@ -1,9 +1,10 @@
 import React from 'react';
+import Button from '../Button';
 import { Link } from 'react-router-dom';
 const Alias = ({ handleSubmit }) => {
   return (
     <>
-      <div className="flex justify-center items-center border border-gray-300 rounded-3xl p-5 max-w-lg mx-auto bg-white shadow-md">
+      <div className="flex justify-center items-center border border-gray-300 sm:px-6 py-4 w-[90vw] rounded-3xl p-5 max-w-lg mx-auto bg-white shadow-md ">
         <div className="w-full text-left">
           <span className="block text-sm font-semibold text-gray-600 mb-2">Enter an alias (For upload credit purposes)</span>
           <input 
@@ -14,18 +15,13 @@ const Alias = ({ handleSubmit }) => {
         </div>
       </div>
 
-      <div className="text-center mt-10">
-        <button 
-          className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700"
-          onClick={handleSubmit}
-        >
-          Submit My Paper
-        </button>
+      <div className="text-center mt-10" onClick={handleSubmit}>
+        <Button name={"Submit"}></Button>
       </div>
       {/* <div className="text-center mt-10">
         <Button onClick={handleSubmit} name={'Submit My Paper'}/>
       </div> */}
-      <div className="text-center mt-[25px] mb-12">
+      <div className="text-center mt-[-25px] mb-12">
         <span className="text-sm text-gray-700">
           Want to request for a Question paper? 
           <Link to="/requestpapers" className="text-blue-600 hover:underline">Request Here</Link>

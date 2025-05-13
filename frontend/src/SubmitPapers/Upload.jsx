@@ -18,7 +18,7 @@ const FileUpload = ({ file, setFile }) => {
   };
 
   return (
-    <div className="flex flex-col items-center mt-10 space-y-4">
+    <div className="flex flex-col items-center mt-10 space-y-4 sm:px-6 py-4 w-[90vw] mx-auto">
       <h2 className="text-xl text-center font-semibold text-gray-800">Upload Your File</h2>
 
       <div

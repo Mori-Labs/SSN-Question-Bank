@@ -15,7 +15,7 @@ const SubjectName = () => {
 
   return (
     <>
-      <div className="flex justify-center items-center border mb-8 border-gray-300 rounded-3xl p-5 max-w-lg mx-auto bg-white shadow-md mt-8">
+      <div className="flex justify-center items-center border mb-8 border-gray-300 rounded-3xl sm:px-6 py-4 w-[90vw] p-5 max-w-lg mx-auto bg-white shadow-md mt-8">
         <div className="w-full text-left">
           <span className="block text-sm font-semibold text-gray-600 mb-2">
             Enter Subject Name (If missing, if exists leave blank)

@@ -15,7 +15,7 @@ const SubjectDetails = ({ subject, setSubject }) => {
   };
 
   return (
-    <div className="flex items-start border border-gray-300 rounded-3xl px-4 py-3 max-w-4xl mx-auto bg-white shadow-md mt-10">
+    <div className="flex items-start border border-gray-300 rounded-3xl mx-auto bg-white shadow-md px-6 sm:px-6 py-4 w-[90vw] max-w-4xl mt-10">
       <div className="w-full text-left">
         <span className="block text-sm font-semibold text-gray-600 mb-2 ml-2">
           Subject (Please select closest subject in case it doesn’t exist)

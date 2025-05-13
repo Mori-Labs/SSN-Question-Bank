@@ -37,8 +37,8 @@ const QPDetails = ({ setExam, setRegulation, setNewPaper }) => {
   };
 
   return (
-    <div className="flex gap-4 justify-start items-center border mt-10 border-gray-300 rounded-3xl px-6 py-4 max-w-4xl mx-auto bg-white shadow-lg">
-      <div className="text-left w-1/4 h-full pr-4 mr-4 border-r-2 border-gray-300">
+    <div className="flex flex-col sm:flex-row gap-4 sm:gap-2 md:gap-4 md:w-[90vw] justify-start items-stretch sm:items-center border mt-10 border-gray-300 rounded-3xl px-4 sm:px-6 py-4 w-[90vw] sm:w-full max-w-4xl mx-auto bg-white shadow-lg">
+      <div className="text-left w-full sm:w-1/4 h-full sm:pr-4 sm:mr-4 sm:border-r-2 border-gray-300">
         <span className="block text-md font-semibold text-gray-700 mb-2">Exam</span>
         <Select
           classNamePrefix="custom-select"
@@ -48,7 +48,7 @@ const QPDetails = ({ setExam, setRegulation, setNewPaper }) => {
         />
       </div>
 
-      <div className="text-left w-1/4 h-full pr-4 mr-4 border-r-2 border-gray-300">
+      <div className="text-left w-full sm:w-1/4 h-full sm:pr-4 sm:mr-4 sm:border-r-2 border-gray-300">
         <span className="block text-md font-semibold text-gray-700 mb-2">Regulation</span>
         <Select
           classNamePrefix="custom-select"
@@ -58,7 +58,7 @@ const QPDetails = ({ setExam, setRegulation, setNewPaper }) => {
         />
       </div>
 
-      <div className="text-left w-2/5 h-full">
+      <div className="text-left w-full sm:w-2/5 h-full">
         <span className="block text-md font-semibold text-gray-700 mb-2">Is this a new subject?</span>
         <Select
           classNamePrefix="custom-select"
