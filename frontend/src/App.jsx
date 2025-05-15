@@ -9,6 +9,7 @@
   import ResultPage from './ResultPage.jsx';
   import Combined from './SubmitPapers/Combined.jsx';
   import One from './RequestPapers/One.jsx'
+import Basepapers from './QuestionPapers/Basepapers.jsx';
 
   function App() {
     return (
@@ -24,6 +25,7 @@
               <Route path='/result/:deptName/:selectedSem/:selectedSub/:paperName' element={<ResultPage />} />
               <Route path='/contribute' element={<Combined />} />
               <Route path='/requestpapers' element={<One />} />
+              <Route path='/question-papers' element={<Basepapers/>}/>
             </Routes>
           </main>
           

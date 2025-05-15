@@ -19,7 +19,7 @@ const AcknowledgementCheckbox = () => {
       <label className="flex items-start gap-3 text-sm text-gray-700 cursor-pointer">
         <input
           type="checkbox"
-          className="mt-0.5 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+          className="mt-0.5 w-5 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
           checked={isChecked2}
           onChange={(e) => setIsChecked2(e.target.checked)}
         />
