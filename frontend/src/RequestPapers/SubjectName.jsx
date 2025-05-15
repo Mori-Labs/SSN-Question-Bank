@@ -5,6 +5,7 @@ const SubjectName = () => {
   const [subject, setSubject] = useState(null);
 
   const subjectOptions = [
+    { value: '', label: 'Leave blank (subject already exists)' },
     { value: 'UIT2601', label: 'Web Programming' },
     { value: 'UIT2602', label: 'Internet Of Things And C Programming' },
   ];
