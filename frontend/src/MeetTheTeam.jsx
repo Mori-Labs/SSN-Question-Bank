@@ -16,7 +16,7 @@ const Team = () => {
       instagramLink: "https://www.instagram.com/vishnusiddharthvr/"
     },
     {
-      name: "Vishwaa Arumugam",
+      name: "Vishwaa D A",
       imageLink: "/src/assets/Vishwaa.jpeg",
       githubLink: "https://github.com/Vishwaa-Arumugam",
       linkedinLink: "https://www.linkedin.com/in/vishwaa-arumugam/",

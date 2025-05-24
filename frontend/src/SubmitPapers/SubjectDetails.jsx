@@ -10,7 +10,7 @@ const SubjectDetails = ({ subject, setSubject }) => {
   const handleSelectChange = (selectedOption) => {
     console.log(selectedOption);
     if (selectedOption) {
-        setSubject(selectedOption.value); // Set subject as the selected value
+        setSubject(selectedOption.label); // Set subject as the selected value
     }
   };
 
