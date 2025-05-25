@@ -1,30 +1,11 @@
 import React from 'react';
 import Select from 'react-select';
 
-const QPDetails = ({ setYear, setSemester, setDepartment }) => {
-  const yearOptions = [
-    { value: '2025', label: '2025' },
-    { value: '2024', label: '2024' },
-    { value: '2023', label: '2023' },
-    { value: '2022', label: '2022' },
-  ];
+const QPDetails = ({ setYear, setSemester, setDepartment, Years, Semesters, Departments }) => {
 
-  const semesterOptions = [
-    { value: 'First', label: 'First' },
-    { value: 'Second', label: 'Second' },
-    { value: 'Third', label: 'Third' },
-    { value: 'Fourth', label: 'Fourth' },
-    { value: 'Fifth', label: 'Fifth' },
-    { value: 'Sixth', label: 'Sixth' },
-    { value: 'Seventh', label: 'Seventh' },
-    { value: 'Eighth', label: 'Eighth' }
-  ];
-
-  const departmentOptions = [
-    { value: 'Information Technology', label: 'Information Technology' },
-    { value: 'Computer Science', label: 'Computer Science' },
-    { value: 'Electronics and Communication', label: 'Electronics and Communication' },
-  ];
+  const yearOptions = Years.map((item) => ({ value: item, label: item }));
+  const semesterOptions = Semesters.map((item) => ({ value: item, label: item }));
+  const departmentOptions = Departments.map((item) => ({ value: item, label: item }));
 
   const handleSelectChange = (type, selectedOption) => {
     const value = selectedOption ? selectedOption.value : '';

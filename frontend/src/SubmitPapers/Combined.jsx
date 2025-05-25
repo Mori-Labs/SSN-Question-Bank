@@ -6,7 +6,7 @@ import FileUpload from "./Upload";
 import AcknowledgementCheckbox from "./AcknowledgementCheckBox";
 import Alias from "./Alias";
 import axios from 'axios';
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -20,6 +20,32 @@ export default function Combined() {
     const [newPaper, setNewPaper] = useState('');
     const [alias, setAlias] = useState('');
     const [file, setFile] = useState(null);
+    const [staticFormData, setstaticFormData] = useState({});
+    const [staticYears, setstaicYears] = useState([]);
+    const [staticSemesters, setStaticSemesters] = useState([]);
+    const [staticDepartments, setStaticDepartments] = useState([]);
+    const [staticSubjects, setStaticSubjects] = useState([]);
+    const [staticExams, setStaticExams] = useState([]);
+    const [staticregulations, setStaticRegulations] = useState([]);
+
+    useEffect(() => {
+        axios.get("http://localhost:8080/api/contribute-constants")
+            .then(response => {
+                console.log(response.data)
+                setstaticFormData(response.data);
+                setstaicYears(response.data.years);
+                setStaticSemesters(response.data.semesters);
+                setStaticDepartments(response.data.departments);
+                setStaticExams(response.data.exams);
+                setStaticRegulations(response.data.regulations);
+                setStaticSubjects(response.data.subjects);
+            })
+            .catch(error => {
+                console.log('Error fetching static data: ', error);
+            });
+    }, []);
+
+    console.log(staticFormData);
 
     const handleSubmit = async () => {
         const payload = {
@@ -74,9 +100,9 @@ export default function Combined() {
     return (
         <>
             <Head  />
-            <QPDetails setYear={setYear} setSemester={setSemester} setDepartment={setDepartment} />
-            <SubjectDetails subject={subject} setSubject={setSubject} />
-            <MoreDetails setExam={setExam} setRegulation={setRegulation} setNewPaper={setNewPaper} />
+            <QPDetails setYear={setYear} setSemester={setSemester} setDepartment={setDepartment} Years={staticYears} Semesters={staticSemesters} Departments={staticDepartments}/>
+            <SubjectDetails subject={subject} setSubject={setSubject} Subjects={staticSubjects} />
+            <MoreDetails setExam={setExam} setRegulation={setRegulation} setNewPaper={setNewPaper} Exams={staticExams} Regulations={staticregulations}/>
             <FileUpload file={file} setFile={setFile}/>
             <AcknowledgementCheckbox />
             <Alias handleSubmit={handleSubmit} />

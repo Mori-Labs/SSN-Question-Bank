@@ -1,16 +1,13 @@
 import React from 'react';
 import Select from 'react-select';
 
-const SubjectDetails = ({ subject, setSubject }) => {
-  const subjectOptions = [
-    { value: 'UIT2601', label: 'Web Programming' },
-    { value: 'UIT2602', label: 'Internet Of Things And C Programming' },
-  ];
+const SubjectDetails = ({ subject, setSubject, Subjects }) => {
+  const subjectOptions = Subjects.map((item) => ({ value: item, label: item }))
 
   const handleSelectChange = (selectedOption) => {
     console.log(selectedOption);
     if (selectedOption) {
-        setSubject(selectedOption.label); // Set subject as the selected value
+        setSubject(selectedOption.label); 
     }
   };
 
@@ -24,7 +21,7 @@ const SubjectDetails = ({ subject, setSubject }) => {
           classNamePrefix="custom-select"
           className="w-full font-medium text-black border-2 border-gray-300 rounded-lg"
           options={subjectOptions}
-          value={subjectOptions.find(option => option.value === subject)} // Correctly use the subject state to set the selected value
+          value={subjectOptions.find(option => option.label === subject)} 
           onChange={handleSelectChange}
         />
       </div>

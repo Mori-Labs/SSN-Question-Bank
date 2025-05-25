@@ -20,14 +20,14 @@ public class Getacronyms {
     }
 
     private static final Map<String, String> SEMESTER_MAP = Map.ofEntries(
-        entry("First", "1"),
-        entry("Second", "2"),
-        entry("Third", "3"),
-        entry("Fourth", "4"),
-        entry("Fifth", "5"),
-        entry("Sixth", "6"),
-        entry("Seventh", "7"),
-        entry("Eighth", "8")
+        entry("One", "1"),
+        entry("Two", "2"),
+        entry("Three", "3"),
+        entry("Four", "4"),
+        entry("Five", "5"),
+        entry("Six", "6"),
+        entry("Seven", "7"),
+        entry("Eight", "8")
     );
 
     public static String getSemesterNumber(String longSemesterName) {

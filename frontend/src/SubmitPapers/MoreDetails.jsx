@@ -1,18 +1,10 @@
 import React from 'react';
 import Select from 'react-select';
 
-const QPDetails = ({ setExam, setRegulation, setNewPaper }) => {
-  const examOptions = [
-    { value: 'CAT-1', label: 'CAT-1' },
-    { value: 'CAT-2', label: 'CAT-2' },
-    { value: 'SAT', label: 'SAT' },
-    { value: 'SEM', label: 'SEM' },
-  ];
+const QPDetails = ({ setExam, setRegulation, setNewPaper, Exams, Regulations }) => {
 
-  const regulationOptions = [
-    { value: 'R-2021', label: 'R-2021' },
-    { value: 'R-2019', label: 'R-2019' },
-  ];
+  const examOptions = Exams.map((item) => ({ value: item, label: item }));
+  const regulationOptions = Regulations.map((item) => ({ value: item, label: item }));
 
   const newSubjectOptions = [
     { value: 'YES', label: 'YES' },
