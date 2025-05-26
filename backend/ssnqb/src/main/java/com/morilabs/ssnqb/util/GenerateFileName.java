@@ -14,5 +14,14 @@ public class GenerateFileName {
             .append(qpdetails.getRegulation())
             .toString();
     }
+
+    public static String github_file_path_generator(QpSubmission qpdetails) {
+        return new StringBuilder()
+                .append(qpdetails.getDepartment()).append("/")
+                .append(Getacronyms.getSemesterNumber(qpdetails.getSemester())).append("/")
+                .append(qpdetails.getSubject()).append("/")
+                .append(Getacronyms.getExamName(qpdetails.getExam())).append("/")
+                .toString();
+    }
     
 }

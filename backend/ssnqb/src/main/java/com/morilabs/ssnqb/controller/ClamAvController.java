@@ -37,8 +37,11 @@
                 System.out.println(QpSubmission.getDepartment());
 
                 String generated_file_name = GenerateFileName.filename_generator(QpSubmission);
+                String generated_github_file_path = GenerateFileName.github_file_path_generator(QpSubmission);
 
                 System.out.println(generated_file_name);
+                System.out.println(generated_github_file_path);
+                                
 
                 return ResponseEntity.ok("File is clean and accepted.");
 
