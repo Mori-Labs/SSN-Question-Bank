@@ -39,7 +39,7 @@ const Team = () => {
   ];
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
       <div className="max-w-9xl mt-32 mx-auto text-center">
         <h2 className="text-4xl font-bold uppercase tracking-wider hover:underline cursor-pointer text-black mb-2">
           MEET THE TEAM

@@ -45,21 +45,21 @@ const ResultPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white py-12 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-white dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
       <div className="max-w-4xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 mb-4 transform hover:scale-105 transition-transform duration-300">
+          <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4 transform hover:scale-105 transition-transform duration-300">
             {selectedSub} Papers
           </h1>
-          <p className="text-lg text-gray-600">
+          <p className="text-lg text-gray-600 dark:text-gray-300">
             Department of {deptName} | Semester {selectedSem}
           </p>
         </div>
 
         {/* Error Message */}
         {error && (
-          <div className="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-8 rounded">
+          <div className="bg-red-100 dark:bg-red-900 border-l-4 border-red-500 text-red-700 dark:text-red-300 p-4 mb-8 rounded">
             <p>Error: {error}</p>
           </div>
         )}
@@ -67,52 +67,79 @@ const ResultPage = () => {
         {/* PDF List */}
         <div className="space-y-6">
           {Object.entries(pdfUrls).map(([filename, url]) => (
-            <div 
-              key={filename} 
-              className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+            <div
+              key={filename}
+              className="bg-white dark:bg-gray-800 rounded-xl shadow-md dark:shadow-black/50 overflow-hidden hover:shadow-lg dark:hover:shadow-white/10 transition-shadow duration-300"
             >
               <div className="p-6 flex flex-col sm:flex-row justify-between items-center">
                 <div className="mb-4 sm:mb-0">
-                  <h3 className="text-lg font-medium text-gray-800 truncate max-w-xs">
+                  <h3 className="text-lg font-medium text-gray-800 dark:text-gray-100 truncate max-w-xs">
                     {filename.replace('.pdf', '')}
                   </h3>
-                  <p className="text-sm text-gray-500">PDF Document</p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">PDF Document</p>
                 </div>
-                
+
                 <div className="flex space-x-3">
                   <a
                     href={url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-2 border border-blue-500 text-blue-500 rounded-lg hover:bg-blue-50 transition-colors duration-200"
+                    className="px-4 py-2 border border-blue-500 text-blue-500 rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900 transition-colors duration-200"
                   >
                     View
                   </a>
-                  
+
                   <a
                     href={url}
                     download={filename}
                     onClick={() => handleDownload(filename)}
-                    className="relative px-4 py-2 bg-black text-white rounded-lg hover:bg-black transition-colors duration-200 overflow-hidden"
+                    className="relative px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-900 dark:bg-white dark:text-black dark:hover:bg-gray-200 transition-colors duration-200 overflow-hidden"
                   >
                     {isDownloading === filename ? (
                       <span className="flex items-center">
-                        <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        <svg
+                          className="animate-spin -ml-1 mr-2 h-4 w-4 text-white dark:text-black"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                        >
+                          <circle
+                            className="opacity-25"
+                            cx="12"
+                            cy="12"
+                            r="10"
+                            stroke="currentColor"
+                            strokeWidth="4"
+                          ></circle>
+                          <path
+                            className="opacity-75"
+                            fill="currentColor"
+                            d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                          ></path>
                         </svg>
                         Downloading...
                       </span>
                     ) : (
                       <span className="flex items-center">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="h-5 w-5 mr-2 text-white dark:text-black"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                          />
                         </svg>
                         Download
                       </span>
                     )}
                     {isDownloading === filename && (
-                      <span className="absolute bottom-0 left-0 right-0 h-1 bg-black animate-progress"></span>
+                      <span className="absolute bottom-0 left-0 right-0 h-1 bg-black dark:bg-white animate-progress"></span>
                     )}
                   </a>
                 </div>
@@ -123,13 +150,26 @@ const ResultPage = () => {
 
         {Object.keys(pdfUrls).length === 0 && !error && (
           <div className="text-center py-12">
-            <div className="mx-auto h-24 w-24 text-gray-400 mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            <div className="mx-auto h-24 w-24 text-gray-400 dark:text-gray-600 mb-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                className="stroke-current"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1}
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
               </svg>
             </div>
-            <h3 className="text-lg font-medium text-gray-900 mb-1">No papers found</h3>
-            <p className="text-gray-500">We couldn't find any PDFs for this selection.</p>
+            <h3 className="text-lg font-medium text-gray-900 dark:text-white mb-1">No papers found</h3>
+            <p className="text-gray-500 dark:text-gray-400">
+              We couldn't find any PDFs for this selection.
+            </p>
           </div>
         )}
       </div>

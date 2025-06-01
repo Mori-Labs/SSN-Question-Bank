@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
-import Heading from "./Heading"
-import Header from '../SubmitPapers/Header'
-import SubjectDetails from "../SubmitPapers/SubjectDetails"
-import MoreDetails from "../SubmitPapers/MoreDetails"
-import SubjectName from './SubjectName'
-import RequestPaper from './RequestPaper'
-import Contribute from "./Contribute"
+import Heading from "./Heading";
+import Header from '../SubmitPapers/Header';
+import SubjectDetails from "../SubmitPapers/SubjectDetails";
+import MoreDetails from "../SubmitPapers/MoreDetails";
+import SubjectName from './SubjectName';
+import RequestPaper from './RequestPaper';
+import Contribute from "./Contribute";
 import axios from "axios";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -28,30 +28,51 @@ export default function One() {
 
   useEffect(() => {
     axios.get("http://localhost:8080/api/contribute-constants")
-        .then(response => {
-            console.log(response.data)
-            setstaticFormData(response.data);
-            setstaicYears(response.data.years);
-            setStaticSemesters(response.data.semesters);
-            setStaticDepartments(response.data.departments);
-            setStaticExams(response.data.exams);
-            setStaticRegulations(response.data.regulations);
-            setStaticSubjects(response.data.subjects);
-        })
-        .catch(error => {
-            console.log('Error fetching static data: ', error);
-        });
+      .then(response => {
+        console.log(response.data);
+        setstaticFormData(response.data);
+        setstaicYears(response.data.years);
+        setStaticSemesters(response.data.semesters);
+        setStaticDepartments(response.data.departments);
+        setStaticExams(response.data.exams);
+        setStaticRegulations(response.data.regulations);
+        setStaticSubjects(response.data.subjects);
+      })
+      .catch(error => {
+        console.log('Error fetching static data: ', error);
+      });
   }, []);
 
-console.log(staticFormData);
+  console.log(staticFormData);
 
   return (
-    <>
-      <Heading />
-      <Header setYear={setYear} setSemester={setSemester} setDepartment={setDepartment} Years={staticYears} Semesters={staticSemesters} Departments={staticDepartments} />
-      <SubjectDetails subject={subject} setSubject={setSubject} Subjects={staticSubjects} />
-      <MoreDetails setExam={setExam} setRegulation={setRegulation} setNewPaper={setNewPaper} Exams={staticExams} Regulations={staticregulations}/>
-      <SubjectName />
+    // Dark mode wrapper
+    <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+      <Heading className="dark:text-gray-100" />
+      <Header
+        setYear={setYear}
+        setSemester={setSemester}
+        setDepartment={setDepartment}
+        Years={staticYears}
+        Semesters={staticSemesters}
+        Departments={staticDepartments}
+        className="dark:bg-gray-800 dark:text-gray-100"
+      />
+      <SubjectDetails
+        subject={subject}
+        setSubject={setSubject}
+        Subjects={staticSubjects}
+        className="dark:bg-gray-800 dark:text-gray-100"
+      />
+      <MoreDetails
+        setExam={setExam}
+        setRegulation={setRegulation}
+        setNewPaper={setNewPaper}
+        Exams={staticExams}
+        Regulations={staticregulations}
+        className="dark:bg-gray-800 dark:text-gray-100"
+      />
+      <SubjectName className="dark:text-gray-100" />
       <RequestPaper
         year={year}
         semester={semester}
@@ -60,9 +81,10 @@ console.log(staticFormData);
         exam={exam}
         regulation={regulation}
         newPaper={newPaper}
+        className="dark:bg-gray-800 dark:text-gray-100"
       />
-      <Contribute />
-      <ToastContainer />
-    </>
+      <Contribute className="dark:bg-gray-800 dark:text-gray-100" />
+      <ToastContainer theme="dark" />
+    </div>
   );
 }
