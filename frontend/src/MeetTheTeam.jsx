@@ -1,4 +1,5 @@
 import React from 'react';
+
 const Team = () => {
   const teamMembers = [
     {
@@ -24,7 +25,7 @@ const Team = () => {
     },
     {
       name: "Vishal Prakash",
-      imageLink: "/src/assets/Vishal Prakash.jpg",
+      imageLink: "/src/assets/Vishal.jpeg",
       githubLink: "https://github.com/v1sh-afk",
       linkedinLink: "https://www.linkedin.com/in/vishal-prakash-40728a25b/",
       instagramLink: "https://www.instagram.com/v1sh.afk/"
@@ -39,22 +40,22 @@ const Team = () => {
   ];
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
-      <div className="max-w-9xl mt-32 mx-auto text-center">
-        <h2 className="text-4xl font-bold uppercase tracking-wider hover:underline cursor-pointer text-black mb-2">
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-950">
+      <div className="max-w-7xl mt-32 mx-auto text-center">
+        <h2 className="text-4xl font-bold uppercase tracking-wider text-[#114AA4] dark:text-sky-400 mb-2 hover:underline cursor-pointer">
           MEET THE TEAM
         </h2>
-        <p className="text-xl text-[#114AA4] italic mb-12">
+        <p className="text-xl text-blue-700 dark:text-sky-300 italic mb-12">
           Five Minds, Infinite Possibilities.
         </p>
-        
+
         <div className="flex flex-wrap justify-center gap-8">
           {teamMembers.map((member, index) => (
             <div 
               key={index}
-              className="w-64 bg-white rounded-lg shadow-md p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
-            >
-              <div className="w-36 h-36 mx-auto mb-6 rounded-full border-4 border-[#114AA4] overflow-hidden">
+              className="min-w-64 bg-[#f9fafb] dark:bg-gray-900 rounded-lg shadow-md p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl"
+              >
+              <div className="w-36 h-36 mx-auto mb-6 rounded-full border-4 border-[#114AA4] dark:border-sky-400 overflow-hidden">
                 <img 
                   src={member.imageLink} 
                   alt={member.name}
@@ -64,7 +65,7 @@ const Team = () => {
                   }}
                 />
               </div>
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">
+              <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">
                 {member.name}
               </h3>
               <div className="flex justify-center space-x-4">
@@ -73,7 +74,7 @@ const Team = () => {
                     href={member.githubLink} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-gray-500 hover:text-blue-500 text-2xl transition-colors"
+                    className="text-gray-600 dark:text-gray-300 hover:text-[#114AA4] dark:hover:text-sky-400 text-2xl transition-colors"
                   >
                     <i className="fab fa-github"></i>
                   </a>
@@ -83,7 +84,7 @@ const Team = () => {
                     href={member.linkedinLink} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-gray-500 hover:text-blue-500 text-2xl transition-colors"
+                    className="text-gray-600 dark:text-gray-300 hover:text-[#114AA4] dark:hover:text-sky-400 text-2xl transition-colors"
                   >
                     <i className="fab fa-linkedin"></i>
                   </a>
@@ -93,7 +94,7 @@ const Team = () => {
                     href={member.instagramLink} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-gray-500 hover:text-blue-500 text-2xl transition-colors"
+                    className="text-gray-600 dark:text-gray-300 hover:text-[#c13584] dark:hover:text-pink-400 text-2xl transition-colors"
                   >
                     <i className="fab fa-instagram"></i>
                   </a>

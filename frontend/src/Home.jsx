@@ -89,8 +89,9 @@ const Home = () => {
                   onClick={() => navigate(`/Qp/${key}`)}
                   src={path}
                   alt={`${key} department`}
-                  className="object-contain aspect-square hover:scale-[1.12] size-24 md:size-40 transition-transform duration-300 cursor-pointer"
+                  className="object-contain aspect-square hover:scale-[1.12] size-24 md:size-40 transition-transform duration-300 cursor-pointer dark:invert"
                 />
+
                 <p className='text-base sm:text-lg md:text-xl pt-2 group-hover:text-blue-700 dark:group-hover:text-blue-400 transition-colors'>
                   {key}
                 </p>
@@ -104,8 +105,12 @@ const Home = () => {
             Department not listed here?
           </p>
           <div onClick={() => navigate('/contribute')}>
-            <Button name={"Contribute"} />
-          </div>
+          <Button 
+            name={"Contribute"} 
+            className="bg-white text-black dark:bg-black dark:text-white border border-black dark:border-white transition-colors duration-300"
+          />
+        </div>
+
         </div>
       </div>
     </div>
