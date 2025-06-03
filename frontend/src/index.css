@@ -5,10 +5,15 @@
 @tailwind utilities;
 
 html {
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 body {
-    font-family: 'Poppins', sans-serif;
-    @apply bg-white text-gray-800 dark:bg-gray-950 dark:text-gray-200;
+  font-family: 'Poppins', sans-serif;
+
+  /* Light mode */
+  @apply bg-white text-gray-800;
+
+  /* Dark mode — adjusted for your site's blue theme */
+  @apply dark:bg-[#0b1a33] dark:text-sky-100;
 }

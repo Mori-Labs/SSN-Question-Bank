@@ -6,7 +6,8 @@ const QuestionPapers = () => {
   const [selectedDept, setSelectedDept] = useState('All');
   const [selectedExam, setSelectedExam] = useState('All');
 
-  const mockPapers = [
+  // Replace this with your actual data source (API or state)
+  const papers = [
     {
       contribution_id: 1,
       department: "CSE",
@@ -148,15 +149,12 @@ const QuestionPapers = () => {
       is_direct: true
     }
   ];
-  
 
-  // Extract unique values for dropdowns
-  const uniqueYears = [...new Set(mockPapers.map(p => p.year))];
-  const uniqueDepts = [...new Set(mockPapers.map(p => p.department))];
-  const uniqueExams = [...new Set(mockPapers.map(p => p.exam))];
+  const uniqueYears = [...new Set(papers.map(p => p.year))];
+  const uniqueDepts = [...new Set(papers.map(p => p.department))];
+  const uniqueExams = [...new Set(papers.map(p => p.exam))];
 
-  // Apply all filters
-  const filteredPapers = mockPapers.filter(paper =>
+  const filteredPapers = papers.filter(paper =>
     (selectedYear === 'All' || paper.year.toString() === selectedYear) &&
     (selectedDept === 'All' || paper.department === selectedDept) &&
     (selectedExam === 'All' || paper.exam === selectedExam) &&
@@ -165,119 +163,150 @@ const QuestionPapers = () => {
   );
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
-      <div className="max-w-4xl mx-auto">
+<div className="min-h-screen bg-white dark:bg-gray-950 py-12 px-4 sm:px-6 lg:px-8 transition-colors duration-300">
+<div className="max-w-4xl mx-auto">
         <div className="text-center mb-6">
-          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4 transform hover:scale-105 transition-transform duration-300">
-            Recently Uploaded Papers
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white mb-4 transform hover:scale-105 transition-transform duration-300">
+        Recently Uploaded Papers
           </h1>
 
-          {/* Search Box */}
           <input
-            type="text"
-            placeholder="Search papers..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full sm:w-1/2 mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 transition duration-200"
-          />
+  type="text"
+  placeholder="Search papers..."
+  value={searchTerm}
+  onChange={(e) => setSearchTerm(e.target.value)}
+  className="
+    w-full sm:w-1/2 mt-2 px-4 py-2
+    border border-gray-300 rounded-lg
+    bg-white text-gray-800
+    dark:bg-gray-800 dark:text-gray-200 dark:border-gray-600
+    focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400
+    transition duration-200
+  "
+/>
 
-          {/* Filter Bar */}
-          <div className="flex flex-wrap justify-center gap-3 mt-4">
-            {/* Year Dropdown */}
-            <select
-              value={selectedYear}
-              onChange={(e) => setSelectedYear(e.target.value)}
-              className="bg-white border border-gray-300 text-gray-700 text-sm rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            >
+
+<div className="flex flex-wrap justify-center gap-3 mt-4">
+  <select
+    value={selectedYear}
+    onChange={(e) => setSelectedYear(e.target.value)}
+    className="
+      bg-white border border-gray-300 text-gray-700 text-sm rounded-full px-4 py-2
+      dark:bg-gray-800 dark:border-gray-600 dark:text-gray-200
+      focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400
+      transition duration-200
+    "
+  >
+
               <option value="All">Year: All</option>
               {uniqueYears.map(year => (
                 <option key={year} value={year}>{year}</option>
               ))}
             </select>
 
-            {/* Department Dropdown */}
             <select
-              value={selectedDept}
-              onChange={(e) => setSelectedDept(e.target.value)}
-              className="bg-white border border-gray-300 text-gray-700 text-sm rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            >
-              <option value="All">Department: All</option>
-              {uniqueDepts.map(dept => (
-                <option key={dept} value={dept}>{dept}</option>
-              ))}
-            </select>
+  value={selectedDept}
+  onChange={(e) => setSelectedDept(e.target.value)}
+  className="
+    bg-white border border-gray-300 text-gray-700 text-sm rounded-full px-4 py-2
+    dark:bg-gray-800 dark:border-gray-600 dark:text-gray-200
+    focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400
+    transition duration-200
+  "
+>
+  <option value="All">Department: All</option>
+  {uniqueDepts.map(dept => (
+    <option key={dept} value={dept}>{dept}</option>
+  ))}
+</select>
 
-            {/* Exam Type Dropdown */}
-            <select
-              value={selectedExam}
-              onChange={(e) => setSelectedExam(e.target.value)}
-              className="bg-white border border-gray-300 text-gray-700 text-sm rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            >
-              <option value="All">Exam: All</option>
-              {uniqueExams.map(exam => (
-                <option key={exam} value={exam}>{exam}</option>
-              ))}
-            </select>
+<select
+  value={selectedExam}
+  onChange={(e) => setSelectedExam(e.target.value)}
+  className="
+    bg-white border border-gray-300 text-gray-700 text-sm rounded-full px-4 py-2
+    dark:bg-gray-800 dark:border-gray-600 dark:text-gray-200
+    focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400
+    transition duration-200
+  "
+>
+  <option value="All">Exam: All</option>
+  {uniqueExams.map(exam => (
+    <option key={exam} value={exam}>{exam}</option>
+  ))}
+</select>
 
           </div>
         </div>
 
-        {/* Results */}
         <div className="space-y-6">
-          {filteredPapers.length > 0 ? (
-            filteredPapers.map((paper) => (
-              <div
-                key={paper.contribution_id}
-                className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
-              >
-                <div className="p-6 flex flex-col sm:flex-row justify-between items-center">
-                  <div className="mb-4 sm:mb-0">
-                    <h3 className="text-lg font-medium text-gray-800">
-                      {paper.exam} - {paper.subject} ({paper.year})
-                    </h3>
-                    <p className="text-sm text-gray-500">
-                      Dept: {paper.department}, Sem: {paper.semester}, Regulation: {paper.regulation}
-                    </p>
-                    <p className="text-sm text-gray-500 mt-1">
-                      File: {paper.file_name}
-                    </p>
-                    <p className="text-sm text-gray-500 mt-1">
-                      Uploaded on: {new Date(paper.contribution_date).toLocaleDateString()}
-                    </p>
-                    {paper.is_new_paper && (
-                      <span className="inline-block mt-2 px-2 py-1 bg-green-100 text-green-800 text-xs font-medium rounded-full">
-                        New
-                      </span>
-                    )}
-                  </div>
+  {filteredPapers.length > 0 ? (
+    filteredPapers.map((paper) => (
+      <div
+        key={paper.contribution_id}
+        className="
+          bg-white dark:bg-gray-800
+          rounded-xl shadow-md dark:shadow-gray-700
+          overflow-hidden hover:shadow-lg dark:hover:shadow-gray-600
+          transition-shadow duration-300
+        "
+      >
+        <div className="p-6 flex flex-col sm:flex-row justify-between items-center">
+          <div className="mb-4 sm:mb-0">
+            <h3 className="text-lg font-medium text-gray-800 dark:text-gray-200">
+              {paper.exam} - {paper.subject} ({paper.year})
+            </h3>
+            <p className="text-sm text-gray-500 dark:text-gray-400">
+              Dept: {paper.department}, Sem: {paper.semester}, Regulation: {paper.regulation}
+            </p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+              File: {paper.file_name}
+            </p>
+            <p className="text-sm text-gray-500 dark:text-gray-400 mt-1">
+              Uploaded on: {new Date(paper.contribution_date).toLocaleDateString()}
+            </p>
+            {paper.is_new_paper && (
+              <span className="inline-block mt-2 px-2 py-1 bg-green-100 text-green-800 dark:bg-green-800 dark:text-green-200 text-xs font-medium rounded-full">
+                New
+              </span>
+            )}
+          </div>
 
-                  <div className="flex space-x-3">
-                    <a
-                      href={paper.github_url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-4 py-2 border border-indigo-500 text-indigo-500 rounded-lg hover:bg-indigo-50 transition-colors duration-200"
-                    >
-                      View
-                    </a>
-                    <a
-                      href={paper.github_url}
-                      download
-                      className="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors duration-200 flex items-center"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                      </svg>
-                      Download
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))
-          ) : (
-            <p className="text-center text-gray-500">No papers found.</p>
-          )}
+          <div className="flex space-x-3">
+            <a
+              href={paper.github_url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                px-4 py-2 border border-indigo-500 text-indigo-500 rounded-lg
+                hover:bg-indigo-50 dark:hover:bg-indigo-900
+                transition-colors duration-200
+              "
+            >
+              View
+            </a>
+            <a
+              href={paper.github_url}
+              download
+              className="
+                px-4 py-2 bg-indigo-600 text-white rounded-lg
+                hover:bg-indigo-700 transition-colors duration-200 flex items-center
+              "
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              Download
+            </a>
+          </div>
         </div>
+      </div>
+    ))
+  ) : (
+    <p className="text-center text-gray-500 dark:text-gray-400">No papers found.</p>
+  )}
+</div>
+
       </div>
     </div>
   );

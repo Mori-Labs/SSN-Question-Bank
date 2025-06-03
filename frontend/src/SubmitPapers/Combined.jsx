@@ -97,49 +97,51 @@ export default function Combined() {
     };
 
     return (
-        <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
-            <Head />
-            
-            {/* Pass down static data and setters */}
-            <QPDetails 
-                setYear={setYear} 
-                setSemester={setSemester} 
-                setDepartment={setDepartment} 
-                Years={staticYears} 
-                Semesters={staticSemesters} 
-                Departments={staticDepartments} 
-                className="dark:bg-gray-800 dark:text-gray-100"
-            />
-            
-            <SubjectDetails 
-                subject={subject} 
-                setSubject={setSubject} 
-                Subjects={staticSubjects} 
-                className="dark:bg-gray-800 dark:text-gray-100"
-            />
-            
-            <MoreDetails 
-                setExam={setExam} 
-                setRegulation={setRegulation} 
-                setNewPaper={setNewPaper} 
-                Exams={staticExams} 
-                Regulations={staticregulations} 
-                className="dark:bg-gray-800 dark:text-gray-100"
-            />
-            
-            <FileUpload 
-                file={file} 
-                setFile={setFile} 
-                className="dark:bg-gray-800 dark:text-gray-100"
-            />
-            
-            <AcknowledgementCheckbox className="dark:text-gray-300" />
-            
-            <Alias handleSubmit={handleSubmit} className="dark:bg-gray-800 dark:text-gray-100" />
-            
-            <ToastContainer 
-                theme="dark"  // react-toastify supports dark theme
-            />
+<div className="min-h-screen bg-gray-50 text-gray-800 dark:bg-gray-950 dark:text-gray-200 transition-colors duration-300">
+<Head />
+    
+          <QPDetails
+            setYear={setYear}
+            setSemester={setSemester}
+            setDepartment={setDepartment}
+            Years={staticYears}
+            Semesters={staticSemesters}
+            Departments={staticDepartments}
+            className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-lg p-4 shadow-md transition-colors duration-300"
+          />
+    
+          <SubjectDetails
+            subject={subject}
+            setSubject={setSubject}
+            Subjects={staticSubjects}
+            className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-lg p-4 shadow-md transition-colors duration-300 mt-6"
+          />
+    
+          <MoreDetails
+            setExam={setExam}
+            setRegulation={setRegulation}
+            setNewPaper={setNewPaper}
+            Exams={staticExams}
+            Regulations={staticregulations}
+            className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-lg p-4 shadow-md transition-colors duration-300 mt-6"
+          />
+    
+          <FileUpload
+            file={file}
+            setFile={setFile}
+            className="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-lg p-4 shadow-md transition-colors duration-300 mt-6"
+          />
+    
+          <AcknowledgementCheckbox
+            className="text-gray-700 dark:text-gray-300 mt-6"
+          />
+    
+          <Alias
+            handleSubmit={handleSubmit}
+            className="bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg py-3 px-6 mt-6 transition-colors duration-300"
+          />
+    
+          <ToastContainer theme="dark" />
         </div>
-    );
-}
+      );
+    }

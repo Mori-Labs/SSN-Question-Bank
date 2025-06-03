@@ -8,8 +8,8 @@ const Basepapers = () => {
   const [activeTab, setActiveTab] = useState('papers');
 
   return (
-    <div className="min-h-screen mt-10 flex flex-col items-center bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
-      <div className="w-full bg-white px-6 py-4 flex justify-center gap-6 sticky top-0 z-10 dark:bg-gray-900 dark:text-white">
+    <div className="min-h-screen mt-10 flex flex-col items-center bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300">
+      <div className="w-full bg-white px-6 py-4 flex justify-center gap-6 sticky top-0 z-10 dark:bg-gray-950 dark:text-white">
 
         <button
           onClick={() => setActiveTab('papers')}
