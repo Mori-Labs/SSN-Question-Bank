@@ -29,7 +29,6 @@ export default function One() {
   useEffect(() => {
     axios.get("http://localhost:8080/api/contribute-constants")
       .then(response => {
-        console.log(response.data);
         setstaticFormData(response.data);
         setstaicYears(response.data.years);
         setStaticSemesters(response.data.semesters);
@@ -43,12 +42,10 @@ export default function One() {
       });
   }, []);
 
-  console.log(staticFormData);
-
   return (
-    // Dark mode wrapper
-    <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
-      <Heading className="dark:text-gray-100" />
+    <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-200 transition-colors duration-300">
+      <Heading className="dark:text-gray-200" />
+
       <Header
         setYear={setYear}
         setSemester={setSemester}
@@ -56,23 +53,27 @@ export default function One() {
         Years={staticYears}
         Semesters={staticSemesters}
         Departments={staticDepartments}
-        className="dark:bg-gray-800 dark:text-gray-100"
+        className="dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700"
       />
+
       <SubjectDetails
         subject={subject}
         setSubject={setSubject}
         Subjects={staticSubjects}
-        className="dark:bg-gray-800 dark:text-gray-100"
+        className="dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700"
       />
+
       <MoreDetails
         setExam={setExam}
         setRegulation={setRegulation}
         setNewPaper={setNewPaper}
         Exams={staticExams}
         Regulations={staticregulations}
-        className="dark:bg-gray-800 dark:text-gray-100"
+        className="dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700"
       />
-      <SubjectName className="dark:text-gray-100" />
+
+      <SubjectName className="dark:text-gray-200" />
+
       <RequestPaper
         year={year}
         semester={semester}
@@ -81,9 +82,11 @@ export default function One() {
         exam={exam}
         regulation={regulation}
         newPaper={newPaper}
-        className="dark:bg-gray-800 dark:text-gray-100"
+        className="dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700"
       />
-      <Contribute className="dark:bg-gray-800 dark:text-gray-100" />
+
+      <Contribute className="dark:bg-gray-900 dark:text-gray-200 dark:border-gray-700" />
+
       <ToastContainer theme="dark" />
     </div>
   );
